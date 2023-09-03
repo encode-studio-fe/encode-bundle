@@ -1,6 +1,6 @@
 {
   "name": "encode-bundle",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "印客学院定制打包工具，基于esbuild及SWC开发",
   "main": "dist/index.js",
   "bin": {
@@ -72,7 +72,7 @@
     "@vitest/runner": "^0.34.3",
     "colorette": "2.0.16",
     "consola": "2.15.3",
-    "encode-bundle": "^0.0.3",
+    "encode-bundle": "^0.1.0",
     "encode-fe-lint": "^1.0.3",
     "flat": "5.0.2",
     "fs-extra": "10.0.0",

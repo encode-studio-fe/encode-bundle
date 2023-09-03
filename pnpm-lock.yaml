@@ -80,8 +80,8 @@ devDependencies:
     specifier: 2.15.3
     version: 2.15.3
   encode-bundle:
-    specifier: ^0.0.3
-    version: 0.0.3(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2)
+    specifier: ^0.1.0
+    version: 0.1.0(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2)
   encode-fe-lint:
     specifier: ^1.0.3
     version: 1.0.3(@swc/core@1.2.218)(typescript@5.0.2)
@@ -2124,8 +2124,8 @@ packages:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
 
-  /encode-bundle@0.0.3(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2):
-    resolution: {integrity: sha512-WZvJhCRtI5cbKZfZh+y0k5qA9ESH6Oc9FOoN8v4eI85H/gYpnOCkpkZcQfU7+g5TwVW7p+z323T216jzHIxcug==}
+  /encode-bundle@0.1.0(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2):
+    resolution: {integrity: sha512-qj+C2lz9+1tKT6lMnYcVgbzpTSNMr6zl2BxoR0j0sfvobKpgoOYy8rDqojyHNO28Qgvy4KuxyOvW3M8oby6Jxg==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
