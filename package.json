@@ -38,6 +38,7 @@
     "build": "encode-bundle src/cli-*.ts src/index.ts src/rollup.ts --clean --splitting",
     "build-fast": "npm run build -- --no-dts",
     "prepublishOnly": "pnpm run build",
+    "pub:beta": "pnpm -r publish --tag beta",
     "test": "pnpm run build && pnpm run test-only",
     "test-only": "vitest run",
     "encode-fe-lint-scan": "encode-fe-lint scan",
