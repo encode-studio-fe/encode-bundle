@@ -70,6 +70,9 @@ devDependencies:
   '@types/resolve':
     specifier: 1.20.1
     version: 1.20.1
+  '@vitest/runner':
+    specifier: ^0.34.3
+    version: 0.34.3
   colorette:
     specifier: 2.0.16
     version: 2.0.16
@@ -85,6 +88,9 @@ devDependencies:
   fs-extra:
     specifier: 10.0.0
     version: 10.0.0
+  husky:
+    specifier: ^8.0.0
+    version: 8.0.3
   postcss:
     specifier: 8.4.12
     version: 8.4.12
@@ -850,6 +856,13 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@jest/schemas@29.6.3:
+    resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    dependencies:
+      '@sinclair/typebox': 0.27.8
+    dev: true
+
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
     engines: {node: '>=6.0.0'}
@@ -939,6 +952,10 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 3.28.1
+    dev: true
+
+  /@sinclair/typebox@0.27.8:
+    resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
   /@swc/core-android-arm-eabi@1.2.218:
@@ -1311,6 +1328,14 @@ packages:
       pathe: 1.1.1
     dev: true
 
+  /@vitest/runner@0.34.3:
+    resolution: {integrity: sha512-lYNq7N3vR57VMKMPLVvmJoiN4bqwzZ1euTW+XXYH5kzr3W/+xQG3b41xJn9ChJ3AhYOSoweu974S1V3qDcFESA==}
+    dependencies:
+      '@vitest/utils': 0.34.3
+      p-limit: 4.0.0
+      pathe: 1.1.1
+    dev: true
+
   /@vitest/spy@0.28.4:
     resolution: {integrity: sha512-8WuhfXLlvCXpNXEGJW6Gc+IKWI32435fQJLh43u70HnZ1otJOa2Cmg2Wy2Aym47ZnNCP4NolF+8cUPwd0MigKQ==}
     dependencies:
@@ -1325,6 +1350,14 @@ packages:
       loupe: 2.3.6
       picocolors: 1.0.0
       pretty-format: 27.5.1
+    dev: true
+
+  /@vitest/utils@0.34.3:
+    resolution: {integrity: sha512-kiSnzLG6m/tiT0XEl4U2H8JDBjFtwVlaE8I3QfGiMFR0QvnRDfYfdP3YvTBWM/6iJDAyaPY6yVQiCTUc7ZzTHA==}
+    dependencies:
+      diff-sequences: 29.6.3
+      loupe: 2.3.6
+      pretty-format: 29.6.3
     dev: true
 
   /JSONStream@1.3.5:
@@ -2060,6 +2093,11 @@ packages:
   /detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
+    dev: true
+
+  /diff-sequences@29.6.3:
+    resolution: {integrity: sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dev: true
 
   /diff@4.0.2:
@@ -3201,6 +3239,12 @@ packages:
       read-pkg: 5.2.0
       run-node: 1.0.0
       slash: 3.0.0
+    dev: true
+
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /iconv-lite@0.4.24:
@@ -4351,6 +4395,15 @@ packages:
       react-is: 17.0.2
     dev: true
 
+  /pretty-format@29.6.3:
+    resolution: {integrity: sha512-ZsBgjVhFAj5KeK+nHfF1305/By3lechHQSMWCTl8iHSbfOm2TN5nHEtFc/+W7fAyUeCs2n5iow72gld4gW0xDw==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    dependencies:
+      '@jest/schemas': 29.6.3
+      ansi-styles: 5.2.0
+      react-is: 18.2.0
+    dev: true
+
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
@@ -4389,6 +4442,10 @@ packages:
 
   /react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+    dev: true
+
+  /react-is@18.2.0:
+    resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
   /read-pkg-up@7.0.1:
