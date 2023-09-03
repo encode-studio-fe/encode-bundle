@@ -1,6 +1,6 @@
 {
   "name": "encode-bundle",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "印客学院定制打包工具，基于esbuild及SWC开发",
   "main": "dist/index.js",
   "bin": {
