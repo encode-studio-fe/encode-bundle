@@ -35,7 +35,7 @@
     "init": "pnpm install",
     "dev": "pnpm run build-fast -- --watch",
     "start": "pnpm run dev",
-    "build": "rm -rf dist && esbuild src/cli-default.ts --platform=node --outdir=dist --format=cjs --target=es2018 --external:rollup --external:rollup-plugin-esbuild --external:joycon --external:typescript --bundle && chmod +x dist/cli-default.js",
+    "build": "tsup src/cli-*.ts src/index.ts src/rollup.ts --clean --splitting",
     "build-fast": "npm run build -- --no-dts",
     "prepublishOnly": "pnpm run build",
     "pub:beta": "pnpm -r publish --tag beta",
@@ -87,6 +87,7 @@
     "terser": "^5.16.0",
     "ts-essentials": "9.1.2",
     "tsconfig-paths": "3.12.0",
+    "tsup": "^7.2.0",
     "typescript": "5.0.2",
     "vitest": "0.28.4",
     "wait-for-expect": "3.0.2"
