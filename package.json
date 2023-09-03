@@ -32,7 +32,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "init": "pnpm install",
+    "init": "pnpm install --frozen-lockfile=false",
     "dev": "pnpm run build-fast -- --watch",
     "start": "pnpm run dev",
     "build": "encode-bundle src/cli-*.ts src/index.ts src/rollup.ts --clean --splitting",
