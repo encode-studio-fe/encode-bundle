@@ -79,6 +79,9 @@ devDependencies:
   consola:
     specifier: 2.15.3
     version: 2.15.3
+  encode-bundle:
+    specifier: ^0.0.2
+    version: 0.0.2(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2)
   encode-fe-lint:
     specifier: ^1.0.3
     version: 1.0.3(@swc/core@1.2.218)(typescript@5.0.2)
@@ -127,9 +130,6 @@ devDependencies:
   tsconfig-paths:
     specifier: 3.12.0
     version: 3.12.0
-  tsup:
-    specifier: ^7.2.0
-    version: 7.2.0(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2)
   typescript:
     specifier: 5.0.2
     version: 5.0.2
@@ -2159,6 +2159,45 @@ packages:
 
   /emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
+    dev: true
+
+  /encode-bundle@0.0.2(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2):
+    resolution: {integrity: sha512-BtCY7YadEVq15/fJ++tOiAz8o4NIq/RUFRZEm2IZpD8extQlAMvROESi31l+9bdaa6jhq5vTPucRLGl7u9U2Qw==}
+    engines: {node: '>=16.14'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@swc/core': ^1
+      postcss: ^8.4.12
+      typescript: '>=4.1.0'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      postcss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@swc/core': 1.2.218
+      bundle-require: 4.0.1(esbuild@0.18.20)
+      cac: 6.7.14
+      chokidar: 3.5.3
+      debug: 4.3.4
+      esbuild: 0.18.20
+      execa: 5.1.1
+      globby: 11.1.0
+      joycon: 3.1.1
+      postcss: 8.4.12
+      postcss-load-config: 4.0.1(postcss@8.4.12)
+      resolve-from: 5.0.0
+      rollup: 3.28.1
+      source-map: 0.8.0-beta.0
+      sucrase: 3.34.0
+      tree-kill: 1.2.2
+      typescript: 5.0.2
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
     dev: true
 
   /encode-fe-commitlint-config@1.0.0:
@@ -5310,44 +5349,6 @@ packages:
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: true
-
-  /tsup@7.2.0(@swc/core@1.2.218)(postcss@8.4.12)(typescript@5.0.2):
-    resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
-    engines: {node: '>=16.14'}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': ^1
-      postcss: ^8.4.12
-      typescript: '>=4.1.0'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      postcss:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@swc/core': 1.2.218
-      bundle-require: 4.0.1(esbuild@0.18.20)
-      cac: 6.7.14
-      chokidar: 3.5.3
-      debug: 4.3.4
-      esbuild: 0.18.20
-      execa: 5.1.1
-      globby: 11.1.0
-      joycon: 3.1.1
-      postcss: 8.4.12
-      postcss-load-config: 4.0.1(postcss@8.4.12)
-      resolve-from: 5.0.0
-      rollup: 3.28.1
-      source-map: 0.8.0-beta.0
-      sucrase: 3.34.0
-      tree-kill: 1.2.2
-      typescript: 5.0.2
-    transitivePeerDependencies:
-      - supports-color
-      - ts-node
     dev: true
 
   /tsutils@3.21.0(typescript@5.0.2):
