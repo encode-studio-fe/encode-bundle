@@ -1,7 +1,7 @@
 {
   "name": "encode-bundle",
   "version": "0.0.1",
-  "description": "印客学院定制打包工具，基于esbuild及SWC实现",
+  "description": "印客学院定制打包工具，基于esbuild及SWC",
   "main": "dist/index.js",
   "bin": {
     "encode-bundle": "dist/cli-default.js",
