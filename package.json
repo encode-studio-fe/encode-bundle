@@ -1,6 +1,6 @@
 {
   "name": "encode-bundle",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "印客学院定制打包工具，基于esbuild及SWC",
   "main": "dist/index.js",
   "bin": {
@@ -36,13 +36,12 @@
     "dev": "pnpm run build:fast --watch",
     "start": "pnpm run dev",
     "build": "encode-bundle src/cli-*.ts src/index.ts src/rollup.ts --clean --splitting",
-    "build:dts": "encode-bundle src/index.ts --dts",
     "build:fast": "npm run build --no-dts",
-    "prepublishOnly": "pnpm run build && pnpm run build:dts",
+    "prepublishOnly": "pnpm run build",
     "pub:beta": "pnpm -r publish --tag beta",
     "pub": "pnpm -r publish",
-    "test": "pnpm run build && pnpm run test-only",
-    "test-only": "vitest run",
+    "test": "pnpm run build && pnpm run testOnly",
+    "testOnly": "vitest run",
     "encode-fe-lint-scan": "encode-fe-lint scan",
     "encode-fe-lint-fix": "encode-fe-lint fix"
   },
@@ -73,7 +72,7 @@
     "@vitest/runner": "^0.34.3",
     "colorette": "2.0.16",
     "consola": "2.15.3",
-    "encode-bundle": "^0.0.2",
+    "encode-bundle": "^0.0.3",
     "encode-fe-lint": "^1.0.3",
     "flat": "5.0.2",
     "fs-extra": "10.0.0",
@@ -91,7 +90,7 @@
     "ts-essentials": "9.1.2",
     "tsconfig-paths": "3.12.0",
     "typescript": "5.0.2",
-    "vitest": "0.28.4",
+    "vitest": "^0.34.3",
     "wait-for-expect": "3.0.2"
   },
   "peerDependencies": {

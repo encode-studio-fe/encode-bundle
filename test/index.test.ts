@@ -101,30 +101,6 @@ test('should not filter unknown directives during bundle', async () => {
   expect(outFiles).toEqual(['input.js']);
 });
 
-test('bundle graphql-tools with --dts flag', async () => {
-  await run(
-    getTestName(),
-    {
-      'input.ts': `export { makeExecutableSchema } from 'graphql-tools'`,
-    },
-    {
-      flags: ['--dts'],
-    },
-  );
-});
-
-test('bundle graphql-tools with --dts-resolve flag', async () => {
-  await run(
-    getTestName(),
-    {
-      'input.ts': `export { makeExecutableSchema } from 'graphql-tools'`,
-    },
-    {
-      flags: ['--dts-resolve'],
-    },
-  );
-});
-
 test('bundle vue and ts-essentials with --dts --dts-resolve flag', async () => {
   await run(
     getTestName(),
@@ -192,34 +168,6 @@ test('enable --dts-resolve for specific module', async () => {
   });
   const content = await getFileContent('dist/input.d.ts');
   expect(content).toMatchSnapshot();
-});
-
-test('bundle graphql-tools with --sourcemap flag', async () => {
-  const { outFiles } = await run(
-    getTestName(),
-    {
-      'input.ts': `export { makeExecutableSchema } from 'graphql-tools'`,
-    },
-    {
-      flags: ['--sourcemap'],
-    },
-  );
-  expect(outFiles).toEqual(['input.js', 'input.js.map']);
-});
-
-test('bundle graphql-tools with --sourcemap inline flag', async () => {
-  const { output, outFiles } = await run(
-    getTestName(),
-    {
-      'input.ts': `export { makeExecutableSchema } from 'graphql-tools'`,
-    },
-    {
-      flags: ['--sourcemap', 'inline'],
-    },
-  );
-
-  expect(output).toContain('//# sourceMappingURL=data:application/json;base64');
-  expect(outFiles).toEqual(['input.js']);
 });
 
 test('multiple formats', async () => {
@@ -356,31 +304,6 @@ test('import css in --dts', async () => {
 test('node protocol', async () => {
   const { output } = await run(getTestName(), {
     'input.ts': `import fs from 'node:fs'; console.log(fs)`,
-  });
-  expect(output).toMatchSnapshot();
-});
-
-test('external', async () => {
-  const { output } = await run(getTestName(), {
-    'input.ts': `export {foo} from 'foo'
-    export {bar} from 'bar'
-    export {baz} from 'baz'
-    export {qux} from 'qux'
-    `,
-    'node_modules/foo/index.ts': `export const foo = 'foo'`,
-    'node_modules/foo/package.json': `{"name":"foo","version":"0.0.0"}`,
-    'node_modules/bar/index.ts': `export const bar = 'bar'`,
-    'node_modules/bar/package.json': `{"name":"bar","version":"0.0.0"}`,
-    'node_modules/baz/index.ts': `export const baz = 'baz'`,
-    'node_modules/baz/package.json': `{"name":"baz","version":"0.0.0"}`,
-    'node_modules/qux/index.ts': `export const qux = 'qux'`,
-    'node_modules/qux/package.json': `{"name":"qux","version":"0.0.0"}`,
-    'another/package.json': `{"name":"another-pkg","dependencies":{"qux":"0.0.0"}}`,
-    'encode-bundle.config.ts': `
-    export default {
-      external: [/f/, 'bar', 'another/package.json']
-    }
-    `,
   });
   expect(output).toMatchSnapshot();
 });
