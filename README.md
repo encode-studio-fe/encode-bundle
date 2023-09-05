@@ -1,6 +1,6 @@
 # encode-bundle
 
-印客学院定构建工具，基于 esbuild 及 swc 实现
+印客学院定制构建工具，基于 esbuild 及 swc 实现
 
 ## 特点
 

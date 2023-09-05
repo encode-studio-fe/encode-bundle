@@ -1,6 +1,6 @@
 {
   "name": "encode-bundle",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "印客学院定制构建工具，基于esbuild开发",
   "main": "dist/index.js",
   "bin": {
