@@ -61,6 +61,7 @@
     "postcss-load-config": "^4.0.1",
     "resolve-from": "^5.0.0",
     "rollup": "^3.2.5",
+    "semver": "^7.5.4",
     "source-map": "0.8.0-beta.0",
     "sucrase": "^3.20.3",
     "tree-kill": "^1.2.2"
