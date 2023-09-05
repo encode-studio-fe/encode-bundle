@@ -1,12 +1,12 @@
 # encode-bundle
 
-印客学院定制打包工具，基于 esbuild 及 swc 实现
+印客学院定构建工具，基于 esbuild 及 swc 实现
 
 ## 特点
 
-1. 基于 esbuild 开发：无需关心内部打包逻辑，一键式打包
+1. 基于 esbuild 开发：无需关心内部构建逻辑，一键式构建
 2. 覆盖常用的构建能力：通过 Plugin 式开发，完美支持 esbuild 的构建功能
-3. 支持 ES5：借助 SWC 能力，支持打包至 ES5 环境
+3. 支持 ES5：借助 SWC 能力，支持构建至 ES5 环境
 
 ## 安装
 
@@ -24,7 +24,7 @@ pnpm i encode-bundle -g
 encode-bundle [...files]
 ```
 
-文件默认会打包至 `dist`目录下。
+文件默认会构建至 `dist`目录下。
 
 ## 支持多入口
 
@@ -37,14 +37,14 @@ encode-bundle src/index.ts src/cli.ts
 也可以使用`CLI`的指令执行相同的功能
 
 ```bash
-# 打包结果为 dist/index.js dist/cli.js
+# 构建结果为 dist/index.js dist/cli.js
 encode-bundle --entry src/index.ts --entry src/cli.ts
 ```
 
-也可以指定打包后的文件名称
+也可以指定构建后的文件名称
 
 ```bash
-# 打包结果为 dist/foo.js 和 dist/bar.js
+# 构建结果为 dist/foo.js 和 dist/bar.js
 encode-bundle --entry.foo src/index.ts --entry.bar src/cli.ts
 ```
 
@@ -64,7 +64,7 @@ export default defineConfig({
 
 ## 设置 exclude
 
-默认情况下，除了生产环境下所依赖的模块(`peerDependencies`和`dependencies`)外，会自动打包其他的模块，如果不希望打包，可以使用`--external`避免打包。
+默认情况下，除了生产环境下所依赖的模块(`peerDependencies`和`dependencies`)外，会自动构建其他的模块，如果不希望构建，可以使用`--external`避免构建。
 
 ## 自定义配置
 
@@ -108,7 +108,7 @@ export default defineConfig({
 encode-bundle index.ts --dts
 ```
 
-以上指令会导出`./dist/index.js`和`./dist/index.d.ts`，当导出多种打包格式时，每种打包格式都会生成一个声明文件。
+以上指令会导出`./dist/index.js`和`./dist/index.d.ts`，当导出多种构建格式时，每种构建格式都会生成一个声明文件。
 
 如果有多个入口文件，每个入口文件都会生成一个对应的`.d.ts`文件。因此，如果想对单个入口文件生成声明文件时，请使用 ` --dts <entry>`` 格式，例如 `--dts src/index.ts`。
 
@@ -128,11 +128,11 @@ encode-bundle index.ts --sourcemap
 
 如果有多个入口文件，每个入口文件都会生成相对于的`.map`文件。
 
-## 打包产物格式
+## 构建产物格式
 
 支持`ESM`、`CJS`和`IIFE`。
 
-可以一次性打包多种类型：
+可以一次性构建多种类型：
 
 ```bash
 encode-bundle src/index.ts --format esm,cjs,iife
@@ -162,7 +162,7 @@ dist
 encode-bundle src/index.ts --format esm,cjs,iife --legacy-output
 ```
 
-会打包成:
+会构建成:
 
 ```bash
 dist
@@ -185,7 +185,7 @@ dist
 
 ## 支持 ES5
 
-可以使用`--target es5`指令来将代码编译打包至 ES5 版本，代码首先会打包成`ES2020`，然后借助 SWC 编译成`ES5`。
+可以使用`--target es5`指令来将代码编译构建至 ES5 版本，代码首先会构建成`ES2020`，然后借助 SWC 编译成`ES5`。
 
 ## watch 模式
 

@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Encode Bundle',
-  tagline: '印客学院定制打包工具，基于 esbuild实现',
+  tagline: '印客学院定制构建工具，基于 esbuild实现',
   favicon: 'img/avatar.png',
 
   url: 'https://encode-studio-fe.github.io',

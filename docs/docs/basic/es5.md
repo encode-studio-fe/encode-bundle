@@ -10,7 +10,7 @@ sidebar_position: 9
 const buildAll = async () => {
   await Promise.all([
     ...options.format.map(async (format, index) => {
-      const pluginContainer = new PluginContainer([es5()])
+      const pluginContainer = new PluginContainer([es5()]);
       await runEsbuild(options, {
         pluginContainer,
         format,
@@ -18,42 +18,42 @@ const buildAll = async () => {
         logger,
         buildDependencies,
       }).catch((error) => {
-        previousBuildDependencies.forEach((v) => buildDependencies.add(v))
-        throw error
-      })
+        previousBuildDependencies.forEach((v) => buildDependencies.add(v));
+        throw error;
+      });
     }),
-  ])
-}
+  ]);
+};
 ```
 
 此时做两件事：
 
-1. 代码首先会打包成`ES2020`；
+1. 代码首先会构建成`ES2020`；
 2. 使用 SWC 编译成`ES5`；
 
 ```typescript
 export const es5 = (): Plugin => {
-  let enabled = false
+  let enabled = false;
   return {
     name: 'es5-target',
 
     esbuildOptions(options) {
       if (options.target === 'es5') {
-        options.target = 'es2020'
-        enabled = true
+        options.target = 'es2020';
+        enabled = true;
       }
     },
 
     async renderChunk(code, info) {
       if (!enabled || !/\.(cjs|js)$/.test(info.path)) {
-        return
+        return;
       }
-      const swc: typeof import('@swc/core') = localRequire('@swc/core')
+      const swc: typeof import('@swc/core') = localRequire('@swc/core');
 
       if (!swc) {
         throw new PrettyError(
-          '@swc/core is required for es5 target. Please install it with `npm install @swc/core -D`'
-        )
+          '@swc/core is required for es5 target. Please install it with `npm install @swc/core -D`',
+        );
       }
 
       const result = await swc.transform(code, {
@@ -70,19 +70,17 @@ export const es5 = (): Plugin => {
               ? {
                   compress: false,
                   mangle: {
-                    reserved: this.options.globalName
-                      ? [this.options.globalName]
-                      : [],
+                    reserved: this.options.globalName ? [this.options.globalName] : [],
                   },
                 }
               : undefined,
         },
-      })
+      });
       return {
         code: result.code,
         map: result.map,
-      }
+      };
     },
-  }
-}
+  };
+};
 ```

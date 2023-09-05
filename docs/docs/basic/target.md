@@ -8,16 +8,15 @@ sidebar_position: 8
 
 ```typescript
 if (flags.target) {
-  options.target =
-    flags.target.indexOf(',') >= 0 ? flags.target.split(',') : flags.target
+  options.target = flags.target.indexOf(',') >= 0 ? flags.target.split(',') : flags.target;
 }
 ```
 
-在打包格式化时，如果没有设置`target`时，默认读取`tsconfig`中的`compilerOptions.target`。
+在构建格式化时，如果没有设置`target`时，默认读取`tsconfig`中的`compilerOptions.target`。
 
 ```typescript
 if (!options.target) {
-  options.target = tsconfig.data?.compilerOptions?.target?.toLowerCase()
+  options.target = tsconfig.data?.compilerOptions?.target?.toLowerCase();
 }
 ```
 

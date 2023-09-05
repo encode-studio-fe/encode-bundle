@@ -1,16 +1,16 @@
-import React from 'react'
-import clsx from 'clsx'
-import styles from './styles.module.css'
+import React from 'react';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 
 type FeatureItem = {
-  title: string
-  description: JSX.Element
-}
+  title: string;
+  description: JSX.Element;
+};
 
 const FeatureList: FeatureItem[] = [
   {
     title: '基于esbuild开发',
-    description: <>无需关心内部打包逻辑，一键式打包</>,
+    description: <>无需关心内部构建逻辑，一键式构建</>,
   },
   {
     title: '覆盖常用的构建能力',
@@ -18,9 +18,9 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: '支持ES5',
-    description: <>借助SWC能力，支持打包至ES5环境</>,
+    description: <>借助SWC能力，支持构建至ES5环境</>,
   },
-]
+];
 
 function Feature({ title, description }: FeatureItem) {
   return (
@@ -31,7 +31,7 @@ function Feature({ title, description }: FeatureItem) {
         <p>{description}</p>
       </div>
     </div>
-  )
+  );
 }
 
 export default function HomepageFeatures(): JSX.Element {
@@ -45,5 +45,5 @@ export default function HomepageFeatures(): JSX.Element {
         </div>
       </div>
     </section>
-  )
+  );
 }
