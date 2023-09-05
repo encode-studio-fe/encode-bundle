@@ -1,6 +1,6 @@
 {
   "name": "encode-bundle",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "印客学院定制打包工具，基于esbuild及SWC开发",
   "main": "dist/index.js",
   "bin": {
@@ -32,10 +32,13 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "init": "pnpm install",
+    "init": "pnpm install && (cd docs && pnpm install)",
     "dev": "pnpm run build:fast --watch",
+    "dev:docs": "cd docs && pnpm run start",
     "start": "pnpm run dev",
+    "start:docs": "pnpm run dev:docs",
     "build": "encode-bundle src/cli-*.ts src/index.ts src/rollup.ts --clean --splitting",
+    "build:docs": "cd docs && pnpm run build",
     "build:fast": "npm run build --no-dts",
     "prepublishOnly": "pnpm run build",
     "pub:beta": "pnpm -r publish --tag beta",

@@ -1,12 +1,10 @@
-# encode-bundle
+---
+sidebar_position: 1
+---
 
-印客学院定制打包工具，基于 esbuild 及 swc 实现
+# 快速上手
 
-## 特点
-
-1. 基于 esbuild 开发：无需关心内部打包逻辑，一键式打包
-2. 覆盖常用的构建能力：通过 Plugin 式开发，完美支持 esbuild 的构建功能
-3. 支持 ES5：借助 SWC 能力，支持打包至 ES5 环境
+> 20 分钟快速上手 ⏱️
 
 ## 安装
 
