@@ -14,7 +14,7 @@ treeShakingPlugin({
 }),
 ```
 
-针对设置`terser`配置，通过自定义插件，使用`rollup`进行 `tree-shaking`。
+通过自定义插件，使用`rollup`进行 `tree-shaking`。
 
 ```typescript
 export const treeShakingPlugin = ({
@@ -22,15 +22,15 @@ export const treeShakingPlugin = ({
   name,
   silent,
 }: {
-  treeshake?: TreeshakingStrategy
-  name?: string
-  silent?: boolean
+  treeshake?: TreeshakingStrategy;
+  name?: string;
+  silent?: boolean;
 }): Plugin => {
   return {
     name: 'tree-shaking',
 
     async renderChunk(code, info) {
-      if (!treeshake || !/\.(cjs|js|mjs)$/.test(info.path)) return
+      if (!treeshake || !/\.(cjs|js|mjs)$/.test(info.path)) return;
 
       const bundle = await rollup({
         input: [info.path],
@@ -39,11 +39,11 @@ export const treeShakingPlugin = ({
           {
             name: 'encode-bundle',
             resolveId(source) {
-              if (source === info.path) return source
-              return false
+              if (source === info.path) return source;
+              return false;
             },
             load(id) {
-              if (id === info.path) return code
+              if (id === info.path) return code;
             },
           },
         ],
@@ -51,7 +51,7 @@ export const treeShakingPlugin = ({
         makeAbsoluteExternalsRelative: false,
         preserveEntrySignatures: 'exports-only',
         onwarn: silent ? () => {} : undefined,
-      })
+      });
 
       const result = await bundle.generate({
         interop: 'auto',
@@ -59,7 +59,7 @@ export const treeShakingPlugin = ({
         file: 'out.js',
         sourcemap: !!this.options.sourcemap,
         name,
-      })
+      });
 
       for (const file of result.output) {
         if (file.type === 'chunk') {
@@ -67,11 +67,11 @@ export const treeShakingPlugin = ({
             return {
               code: file.code,
               map: file.map,
-            }
+            };
           }
         }
       }
     },
-  }
-}
+  };
+};
 ```
