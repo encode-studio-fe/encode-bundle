@@ -1,7 +1,7 @@
 {
   "name": "encode-bundle",
   "version": "1.3.0",
-  "description": "印客学院定制打包工具，基于esbuild及SWC开发",
+  "description": "印客学院定制打包工具，基于esbuild开发",
   "main": "dist/index.js",
   "bin": {
     "encode-bundle": "dist/cli-default.js",
@@ -11,7 +11,8 @@
   "files": [
     "/dist",
     "/assets",
-    "/schema.json"
+    "/schema.json",
+    "README.md"
   ],
   "author": "chenghuai",
   "license": "MIT",
